@@ -6,6 +6,8 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_login_signup">Login/SignUp</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_profile">Profile</string>
     <string name="share_fragment">Share</string>
     <string name="connect_with_us">Connect With Us</string>
     <string name="donate_fragment">Donate Now</string>
@@ -13,6 +15,7 @@
     <string name="admin_block">IIT+Patna+Administration+Block</string>
     <string name="contact_fragment">Contact Us</string>
     <string name="gallery_fragment">Gallery</string>
+    <string name="profile">Profile</string>
 
     <!--Team Page-->
     <string name="member_1">Vivek Garg</string>
@@ -194,5 +197,15 @@
     <string name="event_details">Event Details</string>
     <string name="msg_subscribed">You have been subscribed to receive notifications.</string>
     <string name="msg_subscribe_failed">Subscription for notification service failed.</string>
+
+    <!--Profile Page-->
+    <string name="edit_button">Edit</string>
+    <string name="graduation_year">Graduation Year</string>
+    <string name="degree">Degree</string>
+    <string name="department">Department</string>
+    <string name="employment_type">Employment Type</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
 
 </resources>

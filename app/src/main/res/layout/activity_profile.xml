@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/fragments_activities_background_color"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/profile_picture_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/profile_picture"
+                    android:layout_width="@dimen/profile_photo_dimen"
+                    android:layout_height="@dimen/profile_photo_dimen"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_account_circle_black_48dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/profile_fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fabSize="mini"
+                    android:padding="@dimen/padding_save_button"
+                    android:layout_margin="@dimen/padding_edit_text"
+                    app:layout_constraintBottom_toBottomOf="@id/profile_picture"
+                    app:layout_constraintRight_toRightOf="@id/profile_picture"
+                    app:srcCompat="@drawable/ic_mode_edit_white_24dp" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/name_header"
+                style="@style/ProfileHeader"
+                android:layout_below="@id/profile_picture_layout"
+                android:text="@string/name" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/name_value"
+                style="@style/UneditableProfileDetail"
+                android:layout_below="@id/name_header"
+                android:text="@string/name" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/email_header"
+                style="@style/ProfileHeader"
+                android:layout_below="@id/name_value"
+                android:text="@string/email" />
+
+            <RelativeLayout
+                android:id="@+id/email_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/email_header">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/email_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_info"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/email_change_button"
+                    android:layout_width="@dimen/edit_button_dimen"
+                    android:layout_height="@dimen/edit_button_dimen"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginEnd="@dimen/edit_button_end_margin"
+                    android:layout_toEndOf="@id/email_text"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foregroundGravity="fill"
+                    android:src="@drawable/ic_mode_edit_black_24dp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/email_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@id/email_change_button"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingBottom="@dimen/padding_edit_text"
+                    android:text="@string/edit_button"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/textsize_medium" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/edit_email_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/email_header"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:textSize="13sp"
+                android:visibility="invisible" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/password_header"
+                style="@style/ProfileHeader"
+                android:layout_below="@id/email_value"
+                android:text="@string/password" />
+
+            <RelativeLayout
+                android:id="@+id/password_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/password_header">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/password_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:password="true"
+                    android:text="@string/password"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_info"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/password_change_button"
+                    android:layout_width="@dimen/edit_button_dimen"
+                    android:layout_height="@dimen/edit_button_dimen"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginEnd="@dimen/edit_button_end_margin"
+                    android:layout_toEndOf="@id/password_text"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foregroundGravity="fill"
+                    android:src="@drawable/ic_mode_edit_black_24dp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/password_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@id/password_change_button"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingBottom="@dimen/padding_edit_text"
+                    android:text="@string/edit_button"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/textsize_medium" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/edit_password_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/password_header"
+                android:visibility="invisible">
+
+                <EditText
+                    android:id="@+id/edit_password_profile_old"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/old_password"
+                    android:inputType="textPassword"
+                    android:textSize="@dimen/edit_text_size" />
+
+                <EditText
+                    android:id="@+id/edit_password_profile_new"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/new_password"
+                    android:inputType="textPassword"
+                    android:textSize="@dimen/edit_text_size" />
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/contact_header"
+                style="@style/ProfileHeader"
+                android:layout_below="@id/password_value"
+                android:text="@string/contact_no" />
+
+            <RelativeLayout
+                android:id="@+id/contact_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contact_header">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/contact_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contact_no"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_info"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/contact_change_button"
+                    android:layout_width="@dimen/edit_button_dimen"
+                    android:layout_height="@dimen/edit_button_dimen"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginEnd="@dimen/edit_button_end_margin"
+                    android:layout_toEndOf="@id/contact_text"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foregroundGravity="fill"
+                    android:src="@drawable/ic_mode_edit_black_24dp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/contact_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@id/contact_change_button"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingBottom="@dimen/padding_edit_text"
+                    android:text="@string/edit_button"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/textsize_medium" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/edit_contact_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contact_header"
+                android:ems="10"
+                android:inputType="number"
+                android:textSize="13sp"
+                android:visibility="invisible" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/roll_number_header"
+                style="@style/ProfileHeader"
+                android:layout_below="@id/contact_value"
+                android:text="@string/college_roll_number" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/roll_number_value"
+                style="@style/UneditableProfileDetail"
+                android:layout_below="@id/roll_number_header"
+                android:text="@string/college_roll_number" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/graduation_year_header"
+                style="@style/ProfileHeader"
+                android:layout_below="@id/roll_number_value"
+                android:text="@string/graduation_year" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/graduation_year_value"
+                style="@style/UneditableProfileDetail"
+                android:layout_below="@id/graduation_year_header"
+                android:text="@string/graduation_year" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/degree_header"
+                style="@style/ProfileHeader"
+                android:layout_below="@id/graduation_year_value"
+                android:text="@string/degree" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/degree_value"
+                style="@style/UneditableProfileDetail"
+                android:layout_below="@id/degree_header"
+                android:text="@string/degree" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/department_header"
+                style="@style/ProfileHeader"
+                android:layout_below="@id/degree_value"
+                android:text="@string/department" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/department_value"
+                style="@style/UneditableProfileDetail"
+                android:layout_below="@id/department_header"
+                android:text="@string/department" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/employment_type_header"
+                style="@style/ProfileHeader"
+                android:layout_below="@id/department_value"
+                android:text="@string/employment_type" />
+
+            <LinearLayout
+                android:id="@+id/employment_type_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/employment_type_header"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="@drawable/spinner_rectangle">
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spinner_profile_employment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/margin_5dp" />
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/present_employer_header"
+                style="@style/ProfileHeader"
+                android:layout_below="@id/employment_type_value"
+                android:text="@string/present_employer_educational_inst" />
+
+            <RelativeLayout
+                android:id="@+id/present_employer_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/present_employer_header">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/present_employer_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/present_employer_educational_inst"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_info"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/present_employer_change_button"
+                    android:layout_width="@dimen/edit_button_dimen"
+                    android:layout_height="@dimen/edit_button_dimen"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginEnd="@dimen/edit_button_end_margin"
+                    android:layout_toEndOf="@id/present_employer_text"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foregroundGravity="fill"
+                    android:src="@drawable/ic_mode_edit_black_24dp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/present_employer_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@id/present_employer_change_button"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingBottom="@dimen/padding_edit_text"
+                    android:text="@string/edit_button"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/textsize_medium" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/edit_present_employer_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/present_employer_header"
+                android:ems="10"
+                android:inputType="text"
+                android:textSize="13sp"
+                android:visibility="invisible" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/dob_header"
+                style="@style/ProfileHeader"
+                android:layout_below="@id/present_employer_value"
+                android:text="@string/dob" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/dob_value"
+                style="@style/UneditableProfileDetail"
+                android:layout_below="@id/dob_header"
+                android:text="@string/dob" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/designation_header"
+                style="@style/ProfileHeader"
+                android:layout_below="@id/dob_value"
+                android:text="@string/designation" />
+
+            <RelativeLayout
+                android:id="@+id/designation_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/designation_header">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/designation_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/designation"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_info"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/designation_change_button"
+                    android:layout_width="@dimen/edit_button_dimen"
+                    android:layout_height="@dimen/edit_button_dimen"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginEnd="@dimen/edit_button_end_margin"
+                    android:layout_toEndOf="@id/designation_text"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foregroundGravity="fill"
+                    android:src="@drawable/ic_mode_edit_black_24dp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/designation_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@id/designation_change_button"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingBottom="@dimen/padding_edit_text"
+                    android:text="@string/edit_button"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/textsize_medium" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/edit_designation_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/designation_header"
+                android:ems="10"
+                android:inputType="text"
+                android:textSize="13sp"
+                android:visibility="invisible" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/address_header"
+                style="@style/ProfileHeader"
+                android:layout_below="@id/designation_value"
+                android:text="@string/address" />
+
+            <RelativeLayout
+                android:id="@+id/address_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/address_header">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/address_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/address"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_info"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/address_change_button"
+                    android:layout_width="@dimen/edit_button_dimen"
+                    android:layout_height="@dimen/edit_button_dimen"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginEnd="@dimen/edit_button_end_margin"
+                    android:layout_toEndOf="@id/address_text"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foregroundGravity="fill"
+                    android:src="@drawable/ic_mode_edit_black_24dp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/address_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@id/address_change_button"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingBottom="@dimen/padding_edit_text"
+                    android:text="@string/edit_button"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/textsize_medium" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/edit_address_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/address_header"
+                android:ems="10"
+                android:inputType="text"
+                android:textSize="13sp"
+                android:visibility="invisible" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/country_header"
+                style="@style/ProfileHeader"
+                android:layout_below="@id/address_value"
+                android:text="@string/country" />
+
+            <RelativeLayout
+                android:id="@+id/country_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/country_header">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/country_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/country"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_info"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/country_change_button"
+                    android:layout_width="@dimen/edit_button_dimen"
+                    android:layout_height="@dimen/edit_button_dimen"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginEnd="@dimen/edit_button_end_margin"
+                    android:layout_toEndOf="@id/country_text"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foregroundGravity="fill"
+                    android:src="@drawable/ic_mode_edit_black_24dp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/country_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@id/country_change_button"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingBottom="@dimen/padding_edit_text"
+                    android:text="@string/edit_button"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/textsize_medium" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/edit_country_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/country_header"
+                android:ems="10"
+                android:inputType="text"
+                android:textSize="13sp"
+                android:visibility="invisible" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/state_header"
+                style="@style/ProfileHeader"
+                android:layout_below="@id/country_value"
+                android:text="@string/state" />
+
+            <RelativeLayout
+                android:id="@+id/state_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/state_header">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/state_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/state"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_info"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/state_change_button"
+                    android:layout_width="@dimen/edit_button_dimen"
+                    android:layout_height="@dimen/edit_button_dimen"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginEnd="@dimen/edit_button_end_margin"
+                    android:layout_toEndOf="@id/state_text"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foregroundGravity="fill"
+                    android:src="@drawable/ic_mode_edit_black_24dp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/state_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@id/state_change_button"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="@string/edit_button"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/textsize_medium" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/edit_state_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/state_header"
+                android:ems="10"
+                android:inputType="text"
+                android:textSize="13sp"
+                android:visibility="invisible" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/city_header"
+                style="@style/ProfileHeader"
+                android:layout_below="@id/state_value"
+                android:text="@string/city" />
+
+            <RelativeLayout
+                android:id="@+id/city_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/city_header">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/city_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/city"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_info"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/city_change_button"
+                    android:layout_width="@dimen/edit_button_dimen"
+                    android:layout_height="@dimen/edit_button_dimen"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginEnd="@dimen/edit_button_end_margin"
+                    android:layout_toEndOf="@id/city_text"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foregroundGravity="fill"
+                    android:src="@drawable/ic_mode_edit_black_24dp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/city_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@id/city_change_button"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingBottom="@dimen/padding_edit_text"
+                    android:text="@string/edit_button"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/textsize_medium" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/edit_city_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/city_header"
+                android:ems="10"
+                android:inputType="text"
+                android:textSize="13sp"
+                android:visibility="invisible" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/achievements_header"
+                style="@style/ProfileHeader"
+                android:layout_below="@id/city_value"
+                android:text="@string/achievements" />
+
+            <RelativeLayout
+                android:id="@+id/achievements_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/achievements_header">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/achievements_text"
+                    android:layout_width="@dimen/achievements_textview_width"
+                    android:layout_height="wrap_content"
+                    android:text="@string/achievements"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_info"
+                    android:textStyle="bold" />
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/achievements_change_button"
+                    android:layout_width="@dimen/edit_button_dimen"
+                    android:layout_height="@dimen/edit_button_dimen"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginEnd="@dimen/edit_button_end_margin"
+                    android:layout_toEndOf="@id/achievements_text"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foregroundGravity="fill"
+                    android:src="@drawable/ic_mode_edit_black_24dp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/achievements_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/achievements_change_button"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingTop="@dimen/padding_edit_text"
+                    android:text="@string/edit_button"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/textsize_medium" />
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/edit_achievements_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/achievements_header"
+                android:ems="10"
+                android:inputType="text"
+                android:textSize="13sp"
+                android:visibility="invisible" />
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/profile_save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/achievements_value"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_30dp"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:background="@drawable/round_button"
+                android:paddingStart="@dimen/padding_save_button"
+                android:paddingEnd="@dimen/padding_save_button"
+                android:text="@string/save_changes"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/textsize_medium"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

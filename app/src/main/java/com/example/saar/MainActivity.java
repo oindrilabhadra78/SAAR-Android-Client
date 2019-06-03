@@ -107,6 +107,10 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_login_signup) {
             startActivity(new Intent(this, LoginSignupActivity.class));
+        } else if (id == R.id.action_profile) {
+            startActivity(new Intent(this, ProfileActivity.class));
+        } else if (id == R.id.action_logout) {
+
         }
 
         return super.onOptionsItemSelected(item);

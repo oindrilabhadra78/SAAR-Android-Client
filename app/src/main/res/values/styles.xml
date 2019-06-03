@@ -66,4 +66,19 @@
         <item name="android:layout_marginEnd">@dimen/margin_5dp</item>
     </style>
 
+    <style name="ProfileHeader">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/profile_header_margin</item>
+        <item name="android:textSize">@dimen/textsize_header</item>
+    </style>
+    
+    <style name="UneditableProfileDetail">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/textsize_info</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
